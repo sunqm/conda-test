@@ -1,0 +1,20 @@
+name: Publish
+
+on:
+  - push
+
+jobs:
+  release-conda:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04]
+        python-version: [3.8]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build wheels
+        uses: docker://continuumio/miniconda3:4.7.10
+        with:
+          entrypoint: /usr/bin/env
+        env:
+          FIRST_NAME: Mona
