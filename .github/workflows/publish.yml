@@ -34,4 +34,4 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Conda build
         shell: bash -l {0}
-        run: git clone pyscf && conda build --output-folder . pyscf/conda
+        run: git clone https://github.com/pyscf/pyscf && conda build --output-folder . pyscf/conda
