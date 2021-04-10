@@ -25,7 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["macos-latest"]
+        os: ["macos-10.14"]
         python-version: ["3.7"]
     steps:
       - uses: conda-incubator/setup-miniconda@v2
