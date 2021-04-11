@@ -51,8 +51,7 @@ jobs:
         run: |
            pip install wheel auditwheel
            git clone https://github.com/pyscf/pyscf
-           pip wheel -v --no-deps --no-clean -w ${{ github.workspace }}/wheelhouse ${{ github.workspace }}/pyscf
-           auditwheel -v repair $(ls ${{ github.workspace }}/wheelhouse/pyscf-*.whl) --lib-sdir /lib -w ${{ github.workspace }}/mac-wheels
+           pip setup.py bdist_wheel -v --no-deps -w ${{ github.workspace }}/mac-wheels ${{ github.workspace }}/pyscf
       - name: List available wheels
         run: |
           ls ${{ github.workspace }}/mac-wheels
