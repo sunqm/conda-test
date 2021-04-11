@@ -50,7 +50,8 @@ jobs:
       - name: Build wheels
         run: |
            pip install wheel
-           pip wheel -v --no-deps --no-clean -w ${{ github.workspace }}/wheelhouse ${{ github.workspace }}
+           git clone https://github.com/pyscf/pyscf
+           pip wheel -v --no-deps --no-clean -w ${{ github.workspace }}/wheelhouse ${{ github.workspace }}/pyscf
            auditwheel -v repair $(ls ${{ github.workspace }}/wheelhouse/pyscf-*.whl) --lib-sdir /lib -w ${{ github.workspace }}/mac-wheels
       - name: List available wheels
         run: |
